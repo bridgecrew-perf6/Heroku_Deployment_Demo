@@ -18,7 +18,7 @@ def predict():
     image = np.asarray( image )
     image = np.expand_dims( image , axis=0 ) / 255.0
     predictions = model.predict( image )
-    return jsonify( prob=predictions[ 0 ][ 0 ] )
+    return jsonify( prob=predictions[ 0 ].tolist() )
 
 if __name__ == "__main__":
     app.run( debug=True )
